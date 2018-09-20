@@ -32,7 +32,7 @@ Lastly, we may want to insert a new intermediate step.  Note that the original c
 
 Put another way, extend adds a new vertex, reroute alters an existing vertex, and interpose alters an existing edge.  All of these changes are non-destructive; we may have selected a new execution path, but our historical paths still remain.
 
-Each node in a bash pipeline may only have a single input, but what if a node requires multiple inputs?  Consider these arithmetic expressions, where `_` refers to the value above:
+Each node in a bash pipeline may only have a single input, but what if a node requires multiple inputs?  Consider these arithmetic expressions, where `_` refers to the upstream value:
 
 ![](doc/arithmetic1.png)
 
