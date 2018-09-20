@@ -16,7 +16,7 @@ What would a tool focused on exploratory programming look like?
 
 ### data model
 
-Our model is a dataflow graph, where each vertex represents a pure transform of the data from the vertices above it.  To explore new approaches, we may either create a new graph, or extend an existing one.  There are three fundamental transforms, **extend**, **reroute**, and **interpose**, and **bind**.
+Our model is a dataflow graph, where each vertex represents a pure transform of the data from the vertices above it.  To explore new approaches, we may either create a new graph, or extend an existing one.  There are four fundamental transforms, **extend**, **reroute**, and **interpose**, and **bind**.
 
 Here we take a simple bash pipeline, and branch off in a new direction.  Our execution path, shown by the orange line, has also been redirected:
 
@@ -36,7 +36,7 @@ Each node in a bash pipeline may only have a single input, but what if a node re
 
 ![](doc/arithmetic1.png)
 
-We have extended off in two directions, but currently have no way to combine these values.  In our model, all dependencies beyond the first must be referred to **lexically**, or by name.  We **bind** a name to an execution path in our graph, and refer to that name elsewhere:
+We have extended off in two directions, but currently have no way to combine these values.  In our model, all dependencies beyond the first must be referred to by name, or **lexically**.  We **bind** a name to an execution path in our graph, and refer to that name elsewhere:
 
 ![](doc/arithmetic2.png)
 
@@ -91,7 +91,7 @@ While navigating, we're also able to use the extend, reroute, and interpose tran
 
 The diagrams shown here are meant to describe the interaction mechanism, not the UI itself.  Notably absent is any attempt to show the result of the execution path, which could potentially be added to the central vertex, all vertices, or something in between.  
 
-This is in part because it's still early days, and my UI prototypes (which broadly resemble these diagrams) are filled with arbitrary decisions that I can't defend.  It's also, however, because I don't want to couple the abstract ideas described here with any particular implementation.  I am fairly confident that the data model is solid, and I think the interaction model is promising, but how they should be realized in any particular domain is still an open question.
+This is in part because it's still early days, and my UI prototypes (which broadly resemble these diagrams) are filled with arbitrary decisions that I can't defend.  It's also, however, because I don't want to couple the abstract ideas described here with any particular implementation.  I'm confident that the data model is solid, and I think the interaction model is promising, but how they should be realized in any particular domain is still an open question.
 
 Anyone wishing for further details on the approaches described here should refer to [the provided implementations](https://github.com/lacuna/model/tree/master/src/io/lacuna/model).
 
