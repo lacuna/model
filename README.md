@@ -16,7 +16,7 @@ What would a tool focused on exploratory programming look like?
 
 ### data model
 
-Our model is a dataflow graph, where each vertex represents a pure transform of the data from the vertices above it.  To explore new approaches, we may either create a new graph, or extend an existing one.  There are four fundamental transforms, **extend**, **reroute**, and **interpose**, and **bind**.
+Our model is a dataflow graph, where each vertex represents a pure transform of the data from the vertices above it.  To explore new approaches, we may either create a new graph, or extend an existing one.  There are four fundamental transforms: **extend**, **reroute**, and **interpose**, and **bind**.
 
 Here we take a simple bash pipeline, and branch off in a new direction.  Our execution path, shown by the orange line, has also been redirected:
 
@@ -36,7 +36,7 @@ Each node in a bash pipeline may only have a single input, but what if a node re
 
 ![](doc/arithmetic1.png)
 
-We have extended off in two directions, but currently have no way to combine these values.  In our model, all dependencies beyond the first must be referred to by name, or **lexically**.  We **bind** a name to an execution path in our graph, and refer to that name elsewhere:
+We have extended off in two directions, but currently have no way to combine these values.  In our model, all dependencies beyond the first must be referred to **lexically**, by name.  We **bind** a name to an execution path in our graph, and refer to that name elsewhere:
 
 ![](doc/arithmetic2.png)
 
